@@ -1,5 +1,5 @@
 //EVENTS DATA
-[
+const defaultEvents = [
     {
       "promotion": "UFC",
       "event_name": "UFC 285: Jones vs Gane",
@@ -47,7 +47,7 @@
   ]
  
   //FIGHTERS DATA
-  [
+  const defaultFighters = [
     {
       "name": "Mike Tyson",
       "nickname": "Iron Mike",
@@ -109,9 +109,9 @@
       "active": false
     }
   ]
-  
+
 //FIGHTS DATA
-[
+const defaultFights = [
     {
       "promotion": "UFC",
       "event_name": "UFC 285: Jones vs Gane",
@@ -157,6 +157,8 @@
       "results": []
     }
   ]
+
+  module.exports = { defaultEvents, defaultFighters, defaultFights};
   
 
   

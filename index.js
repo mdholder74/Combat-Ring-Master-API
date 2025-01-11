@@ -17,6 +17,68 @@ app.use(express.urlencoded({ extended: true }));
 //SETUP MIDDLEWARE FOR JSON
 app.use(express.json());
 
+//IMPORT MODELS
+const Event = require('./models/events');
+const Fighter = require('./models/fighters');
+const Fight = require('./models/fights');
+
+//IMPORT SEED DATA
+const { defaultEvents, defaultFighters, defaultFights } = require('./config/seed');
+
+//HOME ROUTE (Full Route localhost:1000/)
+app.get('/', (req, res) => {
+    res.send('Welcome to the COMBAT API');
+})
+
+//GET ALL EVENTS ROUTE
+app.get('/events/seed', async (req, res) => {
+    try {
+        await Event.deleteMany({});
+        const seededEvents = await Event.create(defaultEvents);
+        res.json({
+            message: 'Events default data loaded successfully',
+            events: seededEvents
+        });
+    }
+    catch (error) {
+        console.error(`Something went wrong: ${error.message}`);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+
+//GET ALL FIGHTERS ROUTE
+app.get('/fighters/seed', async (req, res) => {
+    try {
+        await Fighter.deleteMany({});
+        const seededFighters = await Fighter.create(defaultFighters);
+        res.json({
+            message: 'Fighters default data loaded successfully',
+            fighters: seededFighters
+        });
+    }
+    catch (error) {
+        console.error(`Something went wrong: ${error.message}`);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+
+//GET ALL FIGHTS ROUTE
+app.get('/fights/seed', async (req, res) => {
+    try {
+        await Fight.deleteMany({});
+        const seededFights = await Fight.create(defaultFights);
+        res.json({
+            message: 'Fights default data loaded successfully',
+            fights: seededFights
+        });
+    }
+    catch (error) {
+        console.error(`Something went wrong: ${error.message}`);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+
+
 app.listen(PORT, () => {//listen() is a method to start the server and wait for incoming network requests on a given port.The callback function is executed once the server is running.
     console.log(`Server is running on port ${PORT}`)
 })
