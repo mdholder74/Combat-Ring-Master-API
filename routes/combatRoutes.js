@@ -158,3 +158,38 @@ router.put('/fights/:id', async (req, res) => {
     }
 })
 
+//DELETE EVENT BY ID ROUTE (Full Route localhost:1000/api/combat/events/:id)
+router.delete('/events/:id', async (req, res) => {
+    try {
+        const deleteEvent = await Event.findByIdAndDelete(req.params.id);
+        res.json(deleteEvent);
+    }
+    catch (error) {
+        console.error(`Something went wrong: ${error.message}`);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+
+//DELETE FIGHTER BY ID ROUTE (Full Route localhost:1000/api/combat/fighters/:id)
+router.delete('/fighters/:id', async (req, res) => {
+    try {
+        const deleteFighter = await Fighter.findByIdAndDelete(req.params.id);
+        res.json(deleteFighter);
+    }
+    catch (error) {
+        console.error(`Something went wrong: ${error.message}`);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+
+//DELETE FIGHT BY ID ROUTE (Full Route localhost:1000/api/combat/fights/:id)
+router.delete('/fights/:id', async (req, res) => {
+    try {
+        const deleteFight = await Fight.findByIdAndDelete(req.params.id);
+        res.json(deleteFight);
+    }
+    catch (error) {
+        console.error(`Something went wrong: ${error.message}`);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
