@@ -121,3 +121,40 @@ router.get('/fights/:id', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 })
+
+//PUT EVENT BY ID ROUTE (Full Route localhost:1000/api/combat/events/:id)
+router.put('/events/:id', async (req, res) => {
+    try {
+        const updateEvent = await Event.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.json(updateEvent);
+    }
+    catch (error) {
+        console.error(`Something went wrong: ${error.message}`);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }   
+})
+
+//PUT FIGHTER BY ID ROUTE (Full Route localhost:1000/api/combat/fighters/:id)
+router.put('/fighters/:id', async (req, res) => {
+    try {
+        const updateFighter = await Fighter.findByIdAndUpdate(req.params.id , req.body , { new: true });    
+        res.json(updateFighter);
+    }
+    catch (error) {
+        console.error(`Something went wrong: ${error.message}`);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+
+//PUT FIGHT BY ID ROUTE (Full Route localhost:1000/api/combat/fights/:id)
+router.put('/fights/:id', async (req, res) => {
+    try {
+        const updateFight = await Fight.findByIdAndUpdate(req.params.id , req.body , { new: true });
+        res.json(updateFight);
+    }
+    catch (error) {
+        console.error(`Something went wrong: ${error.message}`);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+
