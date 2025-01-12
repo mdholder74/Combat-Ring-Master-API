@@ -47,3 +47,41 @@ router.get('/fights', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 })
+
+//ALL POST ROUTES
+
+//POST EVENT ROUTE (Full Route localhost:1000/api/combat/events)
+router.post('/events', async (req, res) => {
+    try {
+        const createEvent = await Event.create(req.body);
+        res.json(createEvent);
+    }
+    catch (error) {
+        console.error(`Something went wrong: ${error.message}`);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+
+//POST FIGHTER ROUTE (Full Route localhost:1000/api/combat/fighters)
+router.post('/fighters', async (req, res) => {
+    try {
+        const createFighter = await Fighter.create(req.body);
+        res.json(createFighter);
+    }
+    catch (error) {
+        console.error(`Something went wrong: ${error.message}`);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
+
+//POST FIGHT ROUTE (Full Route localhost:1000/api/combat/fights)
+router.post('/fights', async (req, res) => {
+    try {
+        const createFight = await Fight.create(req.body);
+        res.json(createFight);
+    }
+    catch (error) {
+        console.error(`Something went wrong: ${error.message}`);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+})
