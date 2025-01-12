@@ -85,6 +85,8 @@ router.post('/fights', async (req, res) => {
     }
 })
 
+//ALL GET BY ID ROUTES
+
 //GET EVENT BY ID ROUTE (Full Route localhost:1000/api/combat/events/:id)
 router.get('/events/:id', async (req, res) => {
     try {
@@ -121,6 +123,8 @@ router.get('/fights/:id', async (req, res) => {
     }
 })
 
+//ALL PUT ROUTES
+
 //PUT EVENT BY ID ROUTE (Full Route localhost:1000/api/combat/events/:id)
 router.put('/events/:id', async (req, res) => {
     try {
@@ -156,6 +160,8 @@ router.put('/fights/:id', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 })
+
+//ALL DELETE ROUTES
 
 //DELETE EVENT BY ID ROUTE (Full Route localhost:1000/api/combat/events/:id)
 router.delete('/events/:id', async (req, res) => {
