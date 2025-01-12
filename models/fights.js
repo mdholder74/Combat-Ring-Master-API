@@ -2,27 +2,25 @@ const mongoose = require('mongoose');
 
 const fightSchema = new mongoose.Schema({
   event_id: { 
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: 'Event', 
+    type: String, 
     required: true 
 },
   fighter1_id: { 
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: 'Fighter', 
+    type:String, 
     required: true 
 },
   fighter2_id: { 
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: 'Fighter', 
-    required: true 
+    type:String, 
+    required: true
 },
   winner: { 
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: 'Fighter' 
+    type: String,
+    required: true
+
 },
   method: { 
     type: String, 
-    enum: ['KO', 'Submission', 'Decision', 'DQ'], 
+    enum: ['KO', 'Submission', 'Decision', 'DQ', 'Draw', 'No Contest', 'Disqualification', 'Pinfall'], 
     required: true 
 },
   round: { 
@@ -38,7 +36,6 @@ const fightSchema = new mongoose.Schema({
 });
 
 // Adding indexes
-fightSchema.index({ event_id: 1 }); // For fast lookup of fights by event
 fightSchema.index({ fighter1_id: 1 }); // For fast lookup of fights by fighter 1
 fightSchema.index({ fighter2_id: 1 }); // For fast lookup of fights by fighter 2
 

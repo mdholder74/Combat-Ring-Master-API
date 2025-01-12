@@ -16,26 +16,29 @@ const eventSchema = new mongoose.Schema({
     required: true 
 },
   location: { 
-    type: String 
+    type: String,
+    required: true 
 },
   main_event: {
     fighter1: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Fighter' 
+      type:String, 
+      required: true 
     },
     fighter2: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Fighter' 
+      type:String, 
+      required: true
     }
   },
   results: [
     {
       fight: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Fight' },
+        type: String,
+        required: true,
+      },  
       winner: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Fighter' }
+        type: String,
+        required: true,
+      },
     }
   ]
 });

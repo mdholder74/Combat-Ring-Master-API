@@ -7,8 +7,7 @@ const Event = require('../models/events');
 const Fighter = require('../models/fighters');
 const Fight = require('../models/fights');
 
-//EXPORT ROUTER
-module.exports = router;
+
 
 //ALL GET ROUTES
 
@@ -193,3 +192,6 @@ router.delete('/fights/:id', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 })
+
+//EXPORT ROUTER
+module.exports = router;

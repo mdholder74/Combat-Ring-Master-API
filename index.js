@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to the COMBAT API');
 })
 
-//GET ALL EVENTS ROUTE
+//GET ALL EVENTS ROUTE (Full Route localhost:1000/events/seed)
 app.get('/events/seed', async (req, res) => {
     try {
         await Event.deleteMany({});

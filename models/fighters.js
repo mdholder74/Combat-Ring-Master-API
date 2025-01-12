@@ -44,7 +44,6 @@ const fighterSchema = new mongoose.Schema({
 });
 
 // Adding indexes
-fighterSchema.index({ name: 1 }); // For fast lookups by name
 fighterSchema.index({ nickname: 1 }); // For searching by nickname
 fighterSchema.index({ weight_class: 1 }); // For filtering by weight class
 
