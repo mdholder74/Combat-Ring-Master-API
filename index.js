@@ -17,6 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 //SETUP MIDDLEWARE FOR JSON
 app.use(express.json());
 
+//IMPORT ROUTER
+const combatRoutes = require('./routes/combatRoutes');//We import the router we created in the combatRoutes.js file.
+app.use('/api/combat', combatRoutes);//We tell the Express app to use the router we imported and to prefix all routes with /api/combat.
+
 //IMPORT MODELS
 const Event = require('./models/events');
 const Fighter = require('./models/fighters');
